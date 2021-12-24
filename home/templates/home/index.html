@@ -1,0 +1,394 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block page_title %}
+{{page_title}}
+{% endblock page_title %}
+
+
+{% block contents %}
+<!-- slider_area_start -->
+<div class="slider_area">
+    <div class="single_slider  d-flex align-items-center slider_bg_1">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-xl-8">
+                    <div class="slider_text text-center justify-content-center">
+                        <p>For Personal, Business & Company</p>
+                        <h3>Memberikan Berbagai Layanan Untuk Anda</h3>
+                        <a class="boxed-btn3" href="#">Our Services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- slider_area_end -->
+
+<div class="transportaion_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-6">
+                <div class="single_transport">
+                    <div class="icon">
+                        <img src="{% static 'vendor/img/svg_icon/network.png' %}" alt="">
+                    </div>
+                    <h3>Networking Installation</h3>
+                    <br>
+                    <p>
+                        Melayani pemasangan jaringan Local Area Network dan konfigurasi Server Debian, Ubuntu, Router Mikrotik,
+                        Hotspot
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-6">
+                <div class="single_transport">
+                    <div class="icon">
+                        <img src="{% static 'vendor/img/svg_icon/2.png' %}" alt="">
+                    </div>
+                    <h3>Design Graphic and Vidio Editor</h3>
+                    <p>Melayani pembuatan Logo, iklan, Brosur, Poster, Vidiografer dan Editing Vidio</p>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-6">
+                <div class="single_transport">
+                    <div class="icon">
+                        <img src="{% static 'vendor/img/svg_icon/def.png' %}" alt="">
+                    </div>
+                    <h3>Application and Web Devolepment</h3>
+                    <p>Melayani pembuatan aplikasi Dekstop, Mobile Android, dan Website</p>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-6">
+                <div class="single_transport">
+                    <div class="icon">
+                        <img src="{% static 'vendor/img/svg_icon/art.png' %}" alt="">
+                    </div>
+                    <h3>Design 3D Arsitektur</h3>
+                    <p>Melayani perancangan rumah dengan 3D View. Mengunakan software Sketchup dan Lumion </p>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-6">
+                <div class="single_transport">
+                    <div class="icon">
+                        <img src="{% static 'vendor/img/svg_icon/market5.png' %}" alt="">
+                    </div>
+                    <h3>Gatotkaca Market</h3>
+                    <p>Menyediakan berbagai macam barang yang menarik</p>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-6">
+                <div class="single_transport">
+                    <div class="icon">
+                        <img src="{% static 'vendor/img/svg_icon/kost.png' %}" alt="">
+                    </div>
+                    <h3>Gatotkaca Kost</h3>
+                    <p>Menyediakan hunian kamar Kost yang nyaman untuk mahasiswa di Yogyakarta dengan harga yang sangat
+                        terjangkau</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% comment %} <div class="service_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="section_title mb-50 text-center">
+                    <h3>
+                        Experience
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="service_active owl-carousel">
+
+                    {% for artikel in latest_artikel_list %}
+
+                    {% if artikel.kategori == "Networking" %}
+                    <div class="single_service">
+                        <div class="thumb">
+                            <img src="{% static 'vendor/img/service/network.jpg' %}" alt="">
+                        </div>
+                        <div class="service_info">
+                            <h3><a href="{% url 'artikel:category' artikel.kategori 1%}">Networking Installation</a>
+                            </h3>
+                            <h5>{{artikel.judul}}</h5>
+                            <p class="card-text">{{artikel.isi|truncatewords:10}}</p>
+                            <a href="{% url 'artikel:detail' artikel.slug%}" class="card-link">Selengkapnya</a>
+                        </div>
+                    </div>
+
+                    {% elif artikel.kategori == "Design"%}
+                    <div class="single_service">
+                        <div class="thumb">
+                            <img src="{% static 'vendor/img/service/desing.jpeg' %}" alt="">
+                        </div>
+                        <div class="service_info">
+                            <h3><a href="{% url 'artikel:category' artikel.kategori 1%}">Design Graphic and Vidio
+                                    Editor</a>
+                            </h3>
+                            <h5>{{artikel.judul}}</h5>
+                            <p class="card-text">{{artikel.isi|truncatewords:10}}</p>
+                            <a href="{% url 'artikel:detail' artikel.slug%}" class="card-link">Selengkapnya</a>
+                        </div>
+                    </div>
+
+                    {% elif artikel.kategori == "Devolepment"%}
+                    <div class="single_service">
+                        <div class="thumb">
+                            <img src="{% static 'vendor/img/service/devlop.jpg' %}" alt="">
+                        </div>
+                        <div class="service_info">
+                            <h3><a href="{% url 'artikel:category' artikel.kategori 1%}">Application and WEB
+                                    Devolepment</a>
+                            </h3>
+                            <h5>{{artikel.judul}}</h5>
+                            <p class="card-text">{{artikel.isi|truncatewords:10}}</p>
+                            <a href="{% url 'artikel:detail' artikel.slug%}" class="card-link">Selengkapnya</a>
+                        </div>
+                    </div>
+
+                    {% elif artikel.kategori == "Arsitektur"%}
+                    <div class="single_service">
+                        <div class="thumb">
+                            <img src="{% static 'vendor/img/service/3d.jpg' %}" alt="">
+                        </div>
+                        <div class="service_info">
+                            <h3><a href="{% url 'artikel:category' artikel.kategori 1%}">Design 3D Arsitektur</a>
+                            </h3>
+                            <h5>{{artikel.judul}}</h5>
+                            <p class="card-text">{{artikel.isi|truncatewords:10}}</p>
+                            <a href="{% url 'artikel:detail' artikel.slug%}" class="card-link">Selengkapnya</a>
+                        </div>
+                    </div>
+
+                    {% endif  %}
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div> {% endcomment %}
+
+<!-- contact_action_area  -->
+<div class="contact_action_area">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-xl-7 col-md-6">
+                <div class="action_heading">
+                    <h3>Gatotkaca Kost</h3>
+                    <p>Menyediakan hunian kamar Kost yang nyaman untuk mahasiswa di Yogyakarta dengan harga yang sangat
+                        terjangkau</p>
+                </div>
+            </div>
+            <div class="col-xl-5 col-md-6">
+                <div class="call_add_action">
+                    <a href="#" class="boxed-btn3">View More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /contact_action_area  -->
+<!-- chose_area  -->
+<div class="chose_area ">
+    <div class="container">
+        <div class="features_main_wrap">
+            <div class="row  align-items-center">
+                <div class="col-xl-5 col-lg-5 col-md-6">
+                    <div class="about_image">
+                        <img src="{% static 'vendor/img/about/Gartnew.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6">
+                    <div class="features_info">
+                        <h3>Why Choose Us?</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.
+                        </p>
+                        <ul>
+                            <li> Apartments frequently or motionless. </li>
+                            <li> Duis aute irure dolor in reprehenderit in voluptate. </li>
+                            <li> Voluptatem quia voluptas sit aspernatur.</li>
+                        </ul>
+
+                        <div class="about_btn">
+                            <a class="boxed-btn3-line" href="/about">About Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ chose_area  -->
+
+<!-- counter_area  -->
+<div class="counter_area">
+    <div class="container">
+        <div class="offcan_bg">
+            <div class="row">
+                <div class="col-xl-3 col-md-3">
+                    <div class="single_counter text-center">
+                        <h3> <span class="counter">42</span> <span>+</span> </h3>
+                        <p>Countries Covered</p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-3">
+                    <div class="single_counter text-center">
+                        <h3> <span class="counter">97</span> <span>+</span> </h3>
+                        <p>Business Success</p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-3">
+                    <div class="single_counter text-center">
+                        <h3> <span class="counter">2342</span></h3>
+                        <p>Happy Client</p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-3">
+                    <div class="single_counter text-center">
+                        <h3> <span class="counter">3245</span></h3>
+                        <p>Business Done</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- /counter_area  -->
+
+<!-- testimonial_area  -->
+<div class="testimonial_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-7">
+                <div class="testmonial_active owl-carousel">
+                    <div class="single_carousel">
+                        <div class="single_testmonial text-center">
+                            <div class="quote">
+                                <img src="{% static 'vendor/img/svg_icon/quote.svg' %}" alt="">
+                            </div>
+                            <p>saya senang dengan pelayanan anda</p>
+                            <div class="testmonial_author">
+                                <div class="thumb">
+                                    <img src="{% static 'vendor/img/case/testmonial.png' %}" alt="">
+                                </div>
+                                <h3>dzirki </h3>
+                                <span>Client</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single_carousel">
+                        <div class="single_testmonial text-center">
+                            <div class="quote">
+                                <img src="{% static 'vendor/img/svg_icon/quote.svg' %}" alt="">
+                            </div>
+                            <p>Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor sollicitudin.
+                                Pellentesque id dolor tempor sapien feugiat ultrices.</p>
+                            <div class="testmonial_author">
+                                <div class="thumb">
+                                    <img src="{% static 'vendor/img/case/testmonial.png' %}" alt="">
+                                </div>
+                                <h3>Robert Thomson</h3>
+                                <span>Business Owner</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single_carousel">
+                        <div class="single_testmonial text-center">
+                            <div class="quote">
+                                <img src="{% static 'vendor/img/svg_icon/quote.svg' %}" alt="">
+                            </div>
+                            <p>Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor sollicitudin.
+                                Pellentesque id dolor tempor sapien feugiat ultrices.</p>
+                            <div class="testmonial_author">
+                                <div class="thumb">
+                                    <img src="{% static 'vendor/img/case/testmonial.png' %}" alt="">
+                                </div>
+                                <h3>Robert Thomson</h3>
+                                <span>Business Owner</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Estimate_area start  -->
+<div class="Estimate_area overlay">
+    <div class="container">
+        <center>
+            <h1 style="color: aliceblue;">Gatotkaca Market</h1>
+        </center>
+        <center>
+            <p style="color: aliceblue;" >Esteem spirit temper too say adieus who direct esteem. It look estee luckily or picture
+                placing.</p>
+        </center>
+
+        <div class="row">
+            
+            <div class="col-xl-4 col-lg-4 col-md-5">
+                <div class="Estimate_info">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{% static 'vendor/market/1.png' %}" class="card-img-top" alt="..." height="250">
+                        <div class="card-body">
+                            <h5 class="card-title">Tokopedia</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a target='blank' href="https://www.tokopedia.com/gatotkacamarket-" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-sm-5">
+                
+                <div class="Estimate_info">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{% static 'vendor/market/4.png' %}" class="card-img-top" alt="..." height="250">
+                        <div class="card-body">
+                            <h5 class="card-title">Bukalapak</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a target='blank' href="https://www.bukalapak.com/u/novalsaputra37" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-sm-5">
+                <div class="Estimate_info">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{% static 'vendor/market/6.png' %}" class="card-img-top" alt="..." height="250">
+                        <div class="card-body">
+                          <h5 class="card-title">Shopee</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a target='blank' href="https://shopee.co.id/dzikri_noval" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                      </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+<!-- Estimate_area end  -->
+
+{% endblock contents %}
