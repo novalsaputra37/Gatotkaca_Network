@@ -40,14 +40,19 @@
                 {{project_detail.isi}}
             </p>
 
+            {% if gambar1 %}
             <h3>Gambar 1</h3>
             <img class="img-fluid" src="{{project_detail.gambar1.url}}" alt="image cover">
             <br><br>
+            {% elif gambar2 %}
             <h3>Gambar 2</h3>
             <img class="img-fluid" src="{{project_detail.gambar2.url}}" alt="image cover">
             <br><br>
+            {% elif gambar3 %}
             <h3>Gambar 3</h3>
             <img class="img-fluid" src="{{project_detail.gambar3.url}}" alt="image cover">
+            {% endif %}
+            
          </div>
       </div>
    </div>

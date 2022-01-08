@@ -1,3 +1,4 @@
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.views.generic import (
 	ListView, 
@@ -8,13 +9,24 @@ from django.views.generic import (
 )
 from .models import ProjectModel
 
-# Create your views here.
+class ProjectPerKategori():
+	model = ProjectModel
+
+	def get_latest_project_each_kategori(self):
+		kategori_list = self.model.objects.values_list('kategori', flat=True).distinct()
+		QuerySet = []
+
+		for kategori in kategori_list:
+			project = self.model.objects.filter(kategori=kategori).latest('published')
+			QuerySet.append(project)
+		return QuerySet
+
 class ProjectKategoriListView(ListView):
 	model = ProjectModel
 	template_name = "project/project_kategori_list.html"
 	context_object_name = 'project_list'
 	ordering = ['-published']
-	paginate_by = 5
+	paginate_by = 3
 
 	def get_queryset(self):
 		self.queryset = self.model.objects.filter(kategori=self.kwargs['kategori'])
@@ -31,7 +43,7 @@ class ProjectListView(ListView):
 	template_name = "project/project_list.html"
 	context_object_name = 'project_list'
 	ordering = ['-published']
-	paginate_by = 5
+	paginate_by = 3
 
 	def get_context_data(self,*args,**kwargs):
 		kategori_list = self.model.objects.values_list('kategori', flat=True).distinct()
