@@ -113,22 +113,17 @@
 
                     {% for project in latest_project_list %}
 
-                    {% comment %} {% if project.kategori == "Networking" %} {% endcomment %}
-                    {% comment %} <div class="single_service">
+                    {% if project.kategori == "Networking" %}
+                    <div class="single_service">
                         <div class="thumb">
                             <img src="{% static 'vendor/img/service/network.jpg' %}" alt="">
                         </div>
                         <div class="service_info">
-                            <h3><a href="{% url 'project:kategori' project.kategori 1%}">Networking Installation</a>
+                            <h3><a href="{% url 'project:kategori' project.kategori%}">Networking Installation</a>
                             </h3>
-                            <h5>{{project.judul}}</h5>
-                            <p class="card-text">{{project.isi|truncatewords:10}}</p>
-                            <a href="{% url 'project:detail' project.slug%}" class="card-link">Selengkapnya</a>
                         </div>
-                    </div>{% endcomment %}
-
-                    
-                    {% if project.kategori == "Design"%}
+                    </div>
+                    {% elif project.kategori == "Design"%}
                     <div class="single_service">
                         <div class="thumb">
                             <img src="{% static 'vendor/img/service/desing.jpeg' %}" alt="">
@@ -137,9 +132,6 @@
                             <h3><a href="{% url 'project:kategori' project.kategori %}">Design Graphic and Vidio
                                     Editor</a>
                             </h3>
-                            <h5>{{project.judul}}</h5>
-                            <p class="card-text">{{project.isi|truncatewords:10}}</p>
-                            <a href="{% url 'project:detail' project.slug %}" class="card-link">Selengkapnya</a>
                         </div>
                     </div>
 
@@ -149,12 +141,9 @@
                             <img src="{% static 'vendor/img/service/devlop.jpg' %}" alt="">
                         </div>
                         <div class="service_info">
-                            <h3><a href="{% url 'project:kategori' project.kategori%}">Application and WEB
-                                    Website</a>
+                            <h3><a href="{% url 'project:kategori' project.kategori%}">Application and Web
+                                    Development</a>
                             </h3>
-                            <h5>{{project.judul}}</h5>
-                            <p class="card-text">{{project.isi|truncatewords:10}}</p>
-                            <a href="{% url 'project:detail' project.slug%}" class="card-link">Selengkapnya</a>
                         </div>
                     </div>
 
@@ -166,9 +155,6 @@
                         <div class="service_info">
                             <h3><a href="{% url 'project:kategori' project.kategori%}">Design 3D Arsitektur</a>
                             </h3>
-                            <h5>{{project.judul}}</h5>
-                            <p class="card-text">{{project.isi|truncatewords:10}}</p>
-                            <a href="{% url 'project:detail' project.slug%}" class="card-link">Selengkapnya</a>
                         </div>
                     </div>
                     {% endif  %}

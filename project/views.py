@@ -1,3 +1,4 @@
+from ast import arg
 from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.views.generic import (
@@ -45,6 +46,15 @@ class ProjectListView(ListView):
 	ordering = ['-published']
 	paginate_by = 3
 
+	def get_queryset(self):
+		query = self.request.GET.get('Searched')
+		print(query)
+		if query:
+			object_list = self.model.objects.filter(judul__contains=query).order_by('-published')
+		else:
+			object_list = self.model.objects.all().order_by('-published')
+		return object_list
+
 	def get_context_data(self,*args,**kwargs):
 		kategori_list = self.model.objects.values_list('kategori', flat=True).distinct()
 		self.kwargs.update({'kategori_list':kategori_list})
@@ -55,3 +65,14 @@ class ProjectDetailView(DetailView):
 	model = ProjectModel
 	template_name = "project/project_detail.html"
 	context_object_name = 'project_detail'
+
+	def get_context_data(self, *args, **kwargs):
+		kategori_list = self.model.objects.values_list('kategori', flat=True).distinct()
+		self.kwargs.update({'kategori_list':kategori_list})
+
+		project_serupa = self.model.objects.filter(kategori=self.object.kategori).exclude(id=self.object.id)
+		self.kwargs.update({'project_serupa':project_serupa})
+
+		kwargs = self.kwargs
+		return super().get_context_data(*args, **kwargs)
+		
