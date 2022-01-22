@@ -9,6 +9,7 @@ from django.views.generic import (
 	UpdateView
 )
 from .models import ProjectModel
+from django.db.models import Count
 
 class ProjectPerKategori():
 	model = ProjectModel
@@ -34,8 +35,8 @@ class ProjectKategoriListView(ListView):
 		return super().get_queryset()
 	
 	def get_context_data(self,*args,**kwargs):
-		kategori_list = self.model.objects.values_list('kategori', flat=True).distinct().exclude(kategori=self.kwargs['kategori'])
-		self.kwargs.update({'kategori_list':kategori_list})
+		kategori_count = self.model.objects.values('kategori').annotate(category_count=Count('kategori')).exclude(kategori=self.kwargs['kategori'])
+		self.kwargs.update({'kategori_count':kategori_count})
 		kwargs = self.kwargs
 		return super().get_context_data(*args,**kwargs)
 
@@ -48,7 +49,6 @@ class ProjectListView(ListView):
 
 	def get_queryset(self):
 		query = self.request.GET.get('Searched')
-		print(query)
 		if query:
 			object_list = self.model.objects.filter(judul__contains=query).order_by('-published')
 		else:
@@ -56,8 +56,9 @@ class ProjectListView(ListView):
 		return object_list
 
 	def get_context_data(self,*args,**kwargs):
-		kategori_list = self.model.objects.values_list('kategori', flat=True).distinct()
-		self.kwargs.update({'kategori_list':kategori_list})
+		kategori_count = self.model.objects.values('kategori').annotate(category_count=Count('kategori'))
+		self.kwargs.update({'kategori_count':kategori_count})
+		
 		kwargs = self.kwargs
 		return super().get_context_data(*args,**kwargs)
 
@@ -67,8 +68,8 @@ class ProjectDetailView(DetailView):
 	context_object_name = 'project_detail'
 
 	def get_context_data(self, *args, **kwargs):
-		kategori_list = self.model.objects.values_list('kategori', flat=True).distinct()
-		self.kwargs.update({'kategori_list':kategori_list})
+		kategori_count = self.model.objects.values('kategori').annotate(category_count=Count('kategori'))
+		self.kwargs.update({'kategori_count':kategori_count})
 
 		project_serupa = self.model.objects.filter(kategori=self.object.kategori).exclude(id=self.object.id)
 		self.kwargs.update({'project_serupa':project_serupa})

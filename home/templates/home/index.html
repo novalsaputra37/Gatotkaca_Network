@@ -112,7 +112,6 @@
                 <div class="service_active owl-carousel">
 
                     {% for project in latest_project_list %}
-
                     {% if project.kategori == "Networking" %}
                     <div class="single_service">
                         <div class="thumb">
@@ -134,7 +133,6 @@
                             </h3>
                         </div>
                     </div>
-
                     {% elif project.kategori == "Website"%}
                     <div class="single_service">
                         <div class="thumb">
@@ -146,7 +144,6 @@
                             </h3>
                         </div>
                     </div>
-
                     {% elif project.kategori == "Architect"%}
                     <div class="single_service">
                         <div class="thumb">
@@ -324,11 +321,10 @@
                 placing.</p>
         </center>
 
-        <div class="row">
-            
+        <div class="row align-items-center vh-100">
             <div class="col-xl-4 col-lg-4 col-md-5">
                 <div class="Estimate_info">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img src="{% static 'vendor/market/1.png' %}" class="card-img-top" alt="..." height="250">
                         <div class="card-body">
                             <h5 class="card-title">Tokopedia</h5>
@@ -341,9 +337,8 @@
             </div>
 
             <div class="col-xl-4 col-lg-4 col-sm-5">
-                
                 <div class="Estimate_info">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img src="{% static 'vendor/logo/olx.jpg' %}" class="card-img-top" alt="..." height="250">
                         <div class="card-body">
                             <h5 class="card-title">OLX</h5>
@@ -357,7 +352,7 @@
 
             <div class="col-xl-4 col-lg-4 col-sm-5">
                 <div class="Estimate_info">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img src="{% static 'vendor/market/6.png' %}" class="card-img-top" alt="..." height="250">
                         <div class="card-body">
                           <h5 class="card-title">Shopee</h5>
@@ -367,8 +362,6 @@
                       </div>
                 </div>
             </div>
-            
-
         </div>
     </div>
 </div>

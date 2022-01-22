@@ -167,14 +167,14 @@
           <aside class="single_sidebar_widget post_category_widget">
             <h4 class="widget_title">Category</h4>
             <ul class="list cat-list">
-              {% for kategori in kategori_list %}
+              {% for kategori_count in kategori_count %}
               <li>
                 <a
-                  href="{% url 'project:kategori' kategori %}"
+                  href="{% url 'project:kategori' kategori_count.kategori %}"
                   class="d-flex"
                 >
-                  <p>{{kategori}}</p>
-                  <p>(37)</p>
+                  <p>{{kategori_count.kategori}}</p>
+                  <p>&nbsp;({{kategori_count.category_count}})</p>
                 </a>
               </li>
               {% endfor %}

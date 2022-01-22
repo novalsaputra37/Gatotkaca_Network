@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
-# Create your models here.
+
 class ProjectModel(models.Model):
     judul       = models.CharField(max_length=255)
     isi         = models.TextField()
