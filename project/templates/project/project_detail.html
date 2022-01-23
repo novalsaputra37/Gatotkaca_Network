@@ -31,7 +31,7 @@
             <img class="img-fluid" src="{{project_detail.cover.url}}" alt="image cover">
          </div>
          <div class="blog_details">
-            <h2>{{project_detail.judul}}</h2>
+            <h2>{{project_detail.judul|title}}</h2>
             <ul class="blog-info-link mt-3 mb-4">
                <li><a href="#"><i class="fa fa-user"></i> {{project_detail.kategori}}</a></li>
                <li><a href="#"><i class="fa fa-comments"></i>{{project_detail.published|date:"d F Y"}}</a></li>
