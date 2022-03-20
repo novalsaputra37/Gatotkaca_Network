@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'gatotkaca_network',
         'USER' : 'root',
-        'PASSWORD' : '',
+        'PASSWORD' : 'DEhidara1220',
         'PORT' : '3306',
     }
 }
