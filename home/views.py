@@ -1,8 +1,7 @@
-from pyexpat import model
-from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, CreateView
 from project.views import ProjectPerKategori
 from .models import projectDoneModel
+from .forms import ContactForm
 
 class HomeView(TemplateView, ProjectPerKategori):
     template_name = "home/index.html"
@@ -27,3 +26,8 @@ class AboutView(TemplateView):
 
 class KostView(TemplateView):
     template_name = "home/kost/kost.html"
+
+class ContactView(CreateView):
+    form_class = ContactForm
+    template_name = 'home/contact/index.html'
+    success_url = '/'
