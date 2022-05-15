@@ -1,0 +1,5 @@
+env
+.gitattributes
+.git
+media_root
+db.sqlite3
