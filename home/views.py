@@ -11,7 +11,6 @@ class HomeView(TemplateView, ProjectPerKategori):
         counries = projectDoneModel.objects.count()
         project_suc = projectDoneModel.objects.values('Counties').count()
         Happy_client = projectDoneModel.objects.values('Happy_client').count()
-        print(Happy_client)
 
         context = {
             'latest_project_list' : queysets,
