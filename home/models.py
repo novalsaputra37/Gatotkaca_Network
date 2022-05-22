@@ -14,7 +14,7 @@ class ContactModel(models.Model):
     phone = models.CharField(max_length=12)
     email = models.EmailField(max_length=254)
     subject = models.CharField(max_length=50)
-    message = models.CharField(max_length=255)
+    message = models.TextField()
 
     def __str__ (self):
         return "{}. {}".format(self.id, self.name)
