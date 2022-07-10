@@ -1,5 +1,8 @@
 env
+venv
 .gitattributes
 .git
 media_root
 db.sqlite3
+__pycache__/
+*.pyc

@@ -77,8 +77,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'gatotkaca_network',
-        'USER' : 'root',
-        'PASSWORD' : 'DEhidara1220',
+        'USER': 'root',
+        'PASSWORD': 'DEhidara1220',
+        'HOST' : '127.0.0.1',
         'PORT' : '3306',
     }
 }
