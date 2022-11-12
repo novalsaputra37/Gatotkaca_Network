@@ -1,9 +1,9 @@
 version: "3.10"
 
 services: # adds 2 services: mysql and phpmyadmin to connect with
-  db:
+  gnet-db:
     image: mysql:latest # use latest version of mysql
-    container_name: db_gnet # add a name for the container
+    container_name: gnet-mysql # add a name for the container
     command: --default-authentication-plugin=mysql_native_password
     restart: unless-stopped
     environment: # add default values, see docs for more info.
@@ -12,12 +12,12 @@ services: # adds 2 services: mysql and phpmyadmin to connect with
       MYSQL_PASSWORD: DEhidara1220
       MYSQL_DATABASE: gatotkaca_network # create this database on startup
     volumes:
-      - my-db:/var/lib/mysql
+      - gnet-mysql:/var/lib/mysql
     ports:
       - '3306:3306'
   
   phpmyadmin:
-    container_name: phpmyadmin_gnet
+    container_name: gnet-phpmyadmin
     image: phpmyadmin/phpmyadmin:latest
     ports:
      - "8082:80"
@@ -31,4 +31,4 @@ services: # adds 2 services: mysql and phpmyadmin to connect with
       # MYSQL_PASSWORD: mypassword
 
 volumes: # add persistent data even if container is removed.
-  my-db:
+  gnet-mysql:
